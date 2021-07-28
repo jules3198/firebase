@@ -4,6 +4,7 @@ import Home from './component/Home';
 import LoginComponent from './component/Login.component';
 import RegisterComponent from './component/Register.component';
 import Editor from './component/Editor/Editor';
+import Chat from './component/Chat/Chat';
 import 'bootstrap/dist/css/bootstrap.css';
 import { useState, useEffect } from 'react';
 import {
@@ -32,8 +33,11 @@ function App() {
     <div className="App" style={{ paddingTop: "5rem"}}>
        <Router>
        <Switch>
-          <Route exact path="/">
+          <Route exact path="/home">
               <Home />
+          </Route>
+          <Route exact path="/chat/:key">
+              <Chat />
           </Route>
           <Route path="/editor/:key">
             <Editor />
@@ -42,6 +46,9 @@ function App() {
             <RegisterComponent />
           </Route>
           <Route path="/login">
+            <LoginComponent  isLogin={isLogin}/>
+          </Route>
+          <Route path="/">
             <LoginComponent  isLogin={isLogin}/>
           </Route>
         </Switch>

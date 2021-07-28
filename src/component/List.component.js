@@ -14,6 +14,13 @@ class ListComponent extends  Component{
     }
 
 
+    componentDidMount() {
+        subscribeList('files', (files) => {
+            console.log('filles ', files)
+            this.setState({data: files})
+        })
+    }
+
     async onDelete(id) {
         alert(id)
     }  
@@ -22,9 +29,6 @@ class ListComponent extends  Component{
 
         render()
         {
-            subscribeList('files', (files) => {
-                this.state.data = files;
-            })
             return (
                 <div className="container-fluid" style={{ padding: "5rem"
                 }}>
@@ -36,7 +40,7 @@ class ListComponent extends  Component{
                             {this.state.data.map((file => {
                                 return(
                                 
-                                            <div style={{ float: 'left', width: "200px", marginLeft: '10px', backgroundColor: 'blue', color: 'white', paddingTop: '20px', borderRadius: '10px', paddingBottom: '20px', marginTop:'15px'}} >
+                                            <div key={file.key} style={{ float: 'left', width: "200px", marginLeft: '10px', backgroundColor: 'blue', color: 'white', paddingTop: '20px', borderRadius: '10px', paddingBottom: '20px', marginTop:'15px'}} >
                                                 <h5>{file.values}</h5>
                                                 <Link  style={{color: 'orange'}} to={"/editor/"+file.key} > editer</Link>
                                             </div>   
