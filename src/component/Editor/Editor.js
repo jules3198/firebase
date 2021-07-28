@@ -31,7 +31,7 @@ useEffect(() =>{
           <div className="col-md-1"></div>
           <div className="col-md-10">
               <div style={{float: 'left'}}>
-                <Link to="/home">retour à la liste</Link>
+                <Link to="/">retour à la liste</Link>
               </div>
               <div style={{marginTop: "5rem"}}>
                 <DefaultEditor value={html} onChange={onChange} />

@@ -33,9 +33,7 @@ function App() {
        <Router>
        <Switch>
           <Route exact path="/">
-            {
-              isLogged ? <Home disconnect={ disconnect }/> : <Redirect to="/login"/>
-            }
+              <Home />
           </Route>
           <Route path="/editor/:key">
             <Editor />
