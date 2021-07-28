@@ -31,7 +31,7 @@ useEffect(() =>{
           <div className="col-md-1"></div>
           <div className="col-md-10">
               <div style={{float: 'left'}}>
-                <Link to="/">retour à la liste</Link><br></br>
+                <Link to="/home">retour à la liste</Link><br></br>
                 <Link to={'/chat/'+key}>visiter le chat</Link>
               </div>
               <div style={{marginTop: "5rem"}}>

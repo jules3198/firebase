@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import ListComponent from './List.component';
+import { firebase } from '../Services/Connection'
 
 class Home extends Component {
 
@@ -13,8 +14,12 @@ class Home extends Component {
     }
 
      disconnect () {
+        firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+        });
         this.setState({redirect: true})
-        this.props.disconnect();
     }
 
     render() {
